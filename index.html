@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samantha Postman â REFRAME</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #000; color: #fff; font-family: 'Inter', sans-serif; font-weight: 300; line-height: 1.7; }
+a { color: #D4AF37; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* NAV */
+nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 48px; position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); }
+nav .logo { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #D4AF37; }
+nav .links { display: flex; gap: 32px; }
+nav .links a { font-size: 14px; font-weight: 400; color: #a0a0a0; letter-spacing: 1px; }
+nav .links a:hover { color: #D4AF37; text-decoration: none; }
+
+/* SECTIONS */
+section { padding: 120px 48px; max-width: 800px; margin: 0 auto; }
+section.wide { max-width: 1100px; }
+section.full { max-width: 100%; padding: 120px 48px; }
+
+/* HERO */
+.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding-top: 80px; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(36px, 5vw, 56px); font-weight: 400; line-height: 1.3; margin-bottom: 16px; }
+.hero .social-proof { font-size: 14px; font-style: italic; color: #a0a0a0; margin-bottom: 32px; }
+.hero .subline { font-size: clamp(16px, 2vw, 20px); color: #a0a0a0; line-height: 1.6; margin-bottom: 40px; }
+.hero .cta { display: inline-block; background: #D4AF37; color: #000; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; padding: 16px 40px; border-radius: 6px; letter-spacing: 0.5px; transition: all 0.3s; }
+.hero .cta:hover { background: #e0c04a; text-decoration: none; transform: translateY(-2px); }
+.hero .scroll-trigger { margin-top: 32px; font-size: 14px; color: #666; }
+
+/* HOOK */
+.hook { background: #0A0A0A; }
+.hook-content { font-size: 18px; line-height: 1.8; color: #ccc; }
+.hook-content p { margin-bottom: 24px; }
+.hook-content strong { color: #fff; font-weight: 500; }
+
+/* VALUE PROP */
+.value-prop { text-align: center; }
+.value-prop h2 { font-family: 'Playfair Display', serif; color: #D4AF37; font-size: 32px; font-weight: 400; margin-bottom: 48px; }
+.value-example { max-width: 640px; margin: 0 auto 56px; font-size: 18px; color: #a0a0a0; line-height: 1.8; text-align: left; border-left: 2px solid #D4AF37; padding-left: 24px; }
+.pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; text-align: left; margin-bottom: 48px; }
+.pillar h3 { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #D4AF37; margin-bottom: 12px; }
+.pillar p { font-size: 16px; color: #a0a0a0; line-height: 1.7; }
+
+/* SOCIAL PROOF */
+.social-proof-section { background: #0A0A0A; }
+.stat-bar { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; margin-bottom: 64px; text-align: center; }
+.stat { font-family: 'Playfair Display', serif; font-size: 20px; color: #D4AF37; }
+.stat span { color: #666; font-family: 'Inter', sans-serif; font-size: 14px; }
+.testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
+.testimonial { background: #111; border-radius: 8px; padding: 32px; }
+.testimonial blockquote { font-size: 16px; color: #ccc; line-height: 1.7; font-style: italic; margin-bottom: 20px; position: relative; padding-left: 20px; border-left: 2px solid #D4AF37; }
+.testimonial .author { font-size: 14px; color: #D4AF37; font-weight: 500; }
+.testimonial .title { font-size: 13px; color: #666; margin-top: 2px; }
+
+/* FINAL CTA */
+.final-cta { background: #111; text-align: center; }
+.final-cta h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 40px); color: #D4AF37; font-weight: 400; margin-bottom: 16px; line-height: 1.4; }
+.final-cta .subline { font-size: 18px; color: #a0a0a0; margin-bottom: 40px; }
+.final-cta .cta { display: inline-block; background: #D4AF37; color: #000; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; padding: 16px 40px; border-radius: 6px; transition: all 0.3s; }
+.final-cta .cta:hover { background: #e0c04a; text-decoration: none; transform: translateY(-2px); }
+
+/* FOOTER */
+footer { padding: 48px; text-align: center; font-size: 14px; color: #444; }
+footer a { color: #666; margin: 0 12px; }
+footer a:hover { color: #D4AF37; }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  nav { padding: 16px 24px; }
+  section { padding: 80px 24px; }
+  .stat-bar { gap: 24px; }
+  .stat { font-size: 16px; }
+  .pillars { grid-template-columns: 1fr; }
+  .testimonials { grid-template-columns: 1fr; }
+}
+
+/* FADE IN ANIMATION */
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Samantha Postman</div>
+  <div class="links">
+    <a href="about.html">About</a>
+    <a href="https://samanthapostman.substack.com" target="_blank">AHAs</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>The perspective shifts<br>nobody taught you.</h1>
+  <div class="social-proof">"The Start-up Whisperer" â Steven Puri, Former VP, 20th Century Fox & DreamWorks</div>
+  <div class="subline">Welfare kid who turned problems and problem people<br>into mental models. Writing REFRAME.</div>
+  <a href="https://samanthapostman.substack.com" class="cta">Get the frameworks free &rarr;</a>
+  <div class="scroll-trigger">Or keep reading to see what a bathroom stall taught me<br>about the people who drain you.</div>
+</section>
+
+<!-- HOOK -->
+<section class="hook">
+  <div class="hook-content fade-in">
+    <p>You already know something is off.</p>
+    <p>The friend who drains you every time you talk.<br>The coworker who makes you spiral for days.<br>The family member you dread seeing at holidays.</p>
+    <p>You've tried being patient. Being kind. Being the bigger person.<br>And you're exhausted.</p>
+    <p>I was too. Then I rewired how I saw everything.</p>
+    <p>During a Master's degree I was doing from a wheelchair, something shifted permanently. Decades in five unrelated fields â tax law, farming, theology, photography, psychology. Nobody wires those together. I did. And I started seeing patterns across domains that most people experience separately.</p>
+    <p>A phrase at the dinner table became a framework for why we're never satisfied.<br>A get well card became a model for why some pain sticks for months while other pain slides right off.<br>A bathroom stall became a two-minute method I now use every single week.</p>
+    <p><strong>REFRAME</strong> is the book. <strong>AHAs</strong> is the newsletter where I share the frameworks first.</p>
+  </div>
+  <div style="text-align: center; margin-top: 48px;">
+    <a href="https://samanthapostman.substack.com" class="cta">Get the frameworks free &rarr;</a>
+  </div>
+</section>
+
+<!-- VALUE PROP -->
+<section class="value-prop wide fade-in">
+  <h2>What's inside AHAs</h2>
+  <div class="value-example">
+    When you're vulnerable, everything sticks. The comment from three days ago. The text that wasn't returned. The card that should have been comforting. Nothing slides off. Everything adheres.<br><br>
+    My cousin told me I was "double-sided tape." Six words became a framework I've used every week since. That's how AHAs works.
+  </div>
+  <div class="pillars">
+    <div class="pillar">
+      <h3>Cross-Domain Insight</h3>
+      <p>Tax law. Farming. Photography. Theology. Psychology. Nobody else wires these together. Each framework connects what others keep separate.</p>
+    </div>
+    <div class="pillar">
+      <h3>Named Tools</h3>
+      <p>The SAM Method. Double-Sided Tape. The Want More Loop. Named so you remember them. Designed so you can share them with someone before the week is over.</p>
+    </div>
+    <div class="pillar">
+      <h3>Mirror Mode</h3>
+      <p>The part most writers skip. Where I turn the lens on myself and admit I've been the difficult person too.</p>
+    </div>
+  </div>
+  <a href="https://samanthapostman.substack.com" class="cta">Get the frameworks free &rarr;</a>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="social-proof-section wide fade-in">
+  <div class="stat-bar">
+    <div class="stat">50% <span>conversion increase</span></div>
+    <div class="stat">3 months <span>saved in development</span></div>
+    <div class="stat">4 <span>TEDx speakers coached</span></div>
+  </div>
+  <div class="testimonials">
+    <div class="testimonial">
+      <blockquote>I call her 'The Start-up Whisperer.' I credit Samantha with a meaningful amount of the 50% increase we saw in conversions after A/B testing. Her combination of sharp insights and provocative questions provided a material impact in how we adjusted our messaging.</blockquote>
+      <div class="author">Steven Puri</div>
+      <div class="title">Founder & CEO, The Sukha Company<br>Former VP of Production, 20th Century Fox & DreamWorks</div>
+    </div>
+    <div class="testimonial">
+      <blockquote>Samantha is one of the most brilliant individuals I have ever had the pleasure to work with. She generates insights almost instantly in a way few people are capable of. She is able to put the puzzle pieces together in a different way after just a glance.</blockquote>
+      <div class="author">Dr. Derek Austin</div>
+      <div class="title">Doctor, Software Engineer, Full Stack Developer</div>
+    </div>
+    <div class="testimonial">
+      <blockquote>Samantha has this unique ability to bridge both economic and social gaps in ways I have never seen before â in business, ideation, leadership and mentorship.</blockquote>
+      <div class="author">Graham</div>
+    </div>
+    <div class="testimonial">
+      <blockquote>I've never seen anyone do what Samantha can do. It is in her 'big sky thinking' that ideas are turned from thought to action. Her ability to narrow down options, to isolate solutions, to support her unique ideas with reason and great references.</blockquote>
+      <div class="author">Devrea</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>The tools that changed my life.<br>Yours if you want them.</h2>
+  <div class="subline">One email a week. Mental models, reframes, and the perspective<br>shifts nobody taught us. Free.</div>
+  <a href="https://samanthapostman.substack.com" class="cta">Get the frameworks free &rarr;</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 Samantha Postman</p>
+  <p style="margin-top: 12px;">
+    <a href="https://x.com/SamanthaPostman" target="_blank">X</a>
+    <a href="https://linkedin.com/in/samanthapostman" target="_blank">LinkedIn</a>
+    <a href="https://samanthapostman.substack.com" target="_blank">Substack</a>
+    <a href="about.html">About</a>
+  </p>
+</footer>
+
+<!-- FADE IN SCRIPT -->
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
